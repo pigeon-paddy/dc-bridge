@@ -1,0 +1,12 @@
+services:
+  dc-bridge:
+    container_name: dc-bridge
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+      
+    restart: unless-stopped
+    working_dir: /app
+    entrypoint: node dc-listener.js
